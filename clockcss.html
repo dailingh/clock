@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>clock</title>
+	<style>
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		#clock{
+			width: 200px;
+			height: 200px;
+			border-radius: 50%;
+			border: 1px black solid;
+		}
+		#secline{
+			width: 0px;
+			height: 90px;
+			border: 1px black solid;
+			position: absolute;
+			left: 100px;
+			top: 10px;
+		}
+		#minline{
+			width: 0px;
+			height: 80px;
+			border: 1px black solid;
+			position: absolute;
+			left: 100px;
+			top: 20px;
+		}
+		#hourline{
+			width: 0px;
+			height: 70px;
+			border: 1px black solid;
+			position: absolute;
+			left: 100px;
+			top: 30px;
+		}
+	</style>
+</head>
+<body>
+	<div id="clock">
+		<div id="hourline"></div>
+		<div id="minline"></div>
+		<div id="secline"></div>
+	</div>
+	<script>
+		var hourline = document.querySelector("#hourline");
+		var minline = document.querySelector("#minline");
+		var secline = document.querySelector("#secline");
+		
+		var Working = function () {
+			var time = new Date();
+			var hours = time.getHours();
+			var minutes = time.getMinutes();
+			var seconds = time.getSeconds();
+			console.log(seconds);
+			hours = hours > 12 ? hours - 12 : hours;
+			hours = hours + minutes/60 + seconds/3600;
+			minutes = minutes + seconds/60;
+			secline.style.transform = "rotate(seconds*Math.PI/30)";
+			secline.style.transformOrigin = "101px 101px";
+			minline.style.transform = "rotate(minutes*Math.PI/30)"
+			minline.style.transformOrigin = "101px 101px";
+			hourline.style.transform = "rotate(hours*Math.PI/6)";
+			hourline.style.transformOrigin = "101px 101px";
+		}
+		setInterval("Working()",1000);
+	</script>
+</body>
+</html>
