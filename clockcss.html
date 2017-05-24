@@ -60,12 +60,12 @@
 			hours = hours > 12 ? hours - 12 : hours;
 			hours = hours + minutes/60 + seconds/3600;
 			minutes = minutes + seconds/60;
-			secline.style.transform = `rotate(${seconds*Math.PI/30})`;
-			secline.style.transformOrigin = "101px 101px";
-			minline.style.transform = `rotate(${minutes*Math.PI/30})`;
-			minline.style.transformOrigin = "101px 101px";
-			hourline.style.transform = `rotate(${hours*Math.PI/6})`;
-			hourline.style.transformOrigin = "101px 101px";
+			secline.style.transform = `rotate(${seconds*6}deg)`;
+			secline.style.transformOrigin = "bottom";
+			minline.style.transform = `rotate(${minutes*6}deg)`;
+			minline.style.transformOrigin = "bottom";
+			hourline.style.transform = `rotate(${hours*30}deg)`;
+			hourline.style.transformOrigin = "bottom";
 		}
 		setInterval("Working()",1000);
 	</script>
