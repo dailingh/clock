@@ -15,6 +15,7 @@
 			border: 1px black solid;
 			background: url(clock.png) no-repeat;
 			background-size: 200px 200px;
+			display: none;
 		}
 		#secline{
 			width: 0px;
@@ -23,6 +24,7 @@
 			position: absolute;
 			left: 100px;
 			top: 10px;
+			display: none;
 		}
 		#minline{
 			width: 0px;
@@ -31,6 +33,7 @@
 			position: absolute;
 			left: 100px;
 			top: 20px;
+			display: none;
 		}
 		#hourline{
 			width: 0px;
@@ -39,6 +42,7 @@
 			position: absolute;
 			left: 100px;
 			top: 30px;
+			display: none;
 		}
 	</style>
 </head>
@@ -68,6 +72,10 @@
 			minline.style.transformOrigin = "bottom";
 			hourline.style.transform = `rotate(${hours*30}deg)`;
 			hourline.style.transformOrigin = "bottom";
+			secline.style.display = "block";
+			minline.style.display = "block";
+			hourline.style.display = "block";
+			clock.style.display = "block";
 		}
 		setInterval("Working()",1000);
 	</script>
